@@ -7,7 +7,7 @@
     },
     mounted () {
       axios
-      .get('http://sandbox-api.lomadee.com/v2/1548274999869d74cbd8d/product/_search?sourceId=35561801&keyword=motorola')
+      .get('https://sandbox-api.lomadee.com/v2/1548274999869d74cbd8d/product/_search?sourceId=35561801&keyword=motorola')
         .then(response => (this.info = response.data.products))
     }
   })
