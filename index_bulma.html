@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+  <script src="https://unpkg.com/vue@2.6.6/dist/vue.js"></script>
+</head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+
+
+  <!--Container-->
+  <div id="app">
+    <template>
+      <section>
+        <button class="button is-primary is-medium" @click="isImageModalActive = true">
+          Launch image modal
+        </button>
+        <button class="button is-primary is-medium" @click="isCardModalActive = true">
+          Launch card modal (keep scroll)
+        </button>
+
+        <b-modal :active.sync="isImageModalActive">
+          <p class="image is-4by3">
+            <img src="/static/img/placeholder-1280x960.png">
+          </p>
+        </b-modal>
+
+        <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="/static/img/placeholder-1280x960.png" alt="Image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="/static/img/placeholder-1280x960.png" alt="Image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">John Smith</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+                </div>
+              </div>
+
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                <a>#css</a> <a>#responsive</a>
+                <br>
+                <small>11:09 PM - 1 Jan 2016</small>
+              </div>
+            </div>
+          </div>
+        </b-modal>
+      </section>
+    </template>
+
+    <script>
+      export default {
+        data() {
+          return {
+            isImageModalActive: false,
+            isCardModalActive: false
+          }
+        }
+      }
+    </script>
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-primary">
+              <p class="title">Vertical...</p>
+              <p class="subtitle">Top tile</p>
+            </article>
+            <article class="tile is-child notification is-warning">
+              <p class="title">...tiles</p>
+              <p class="subtitle">Bottom tile</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-info">
+              <p class="title">Middle tile</p>
+              <p class="subtitle">With an image</p>
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/640x480.png">
+              </figure>
+            </article>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-danger">
+            <p class="title">Wide tile</p>
+            <p class="subtitle">Aligned with the right tile</p>
+            <div class="content">
+              <!-- Content -->
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-success">
+          <div class="content">
+            <p class="title">Tall tile</p>
+            <p class="subtitle">With even more content</p>
+            <div class="content">
+              <!-- Content -->
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <h1>Produtos</h1>
+    <div v-for="currency in info" class="currency">
+      <div class="columns is-desktop">
+        <div class="column">
+          {{ currency.name }}
+          {{ currency.priceMin}}
+          <img :src="currency.thumbnail.otherFormats[1].url" />
+          <a v-bind:href="currency.thumbnail.url"> Clique Aqui </a>
+          <b-button type="is-primary">Primary</b-button>
+        </div>
+
+      </div>
+
+
+
+
+
+      <!-- <span class="lighten">
+        <span v-html="currency.thumbnail.url"></span>{{ currency.priceMin}}
+        <img :src="currency.thumbnail.otherFormats[1].url" />
+        <a v-bind:href="currency.thumbnail.url"> Clique Aqui </a>
+      </span> -->
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Full bundle -->
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+
+    <!-- Individual components -->
+    <script src="https://unpkg.com/buefy/dist/components/table"></script>
+    <script src="https://unpkg.com/buefy/dist/components/input"></script>
+
+  </div>
+
+
+
+  <script src="mains.js"></script>
+</body>
+
+
+</html>
